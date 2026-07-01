@@ -248,7 +248,9 @@ public class RadioPlaybackService extends MediaSessionService {
         lastTitle = title;
         lastArtist = artist;
 
-        mainHandler.post(() -> updateNowPlayingMetadata(title, artist, lastArtUrl));
+        final String finalTitle = title;
+        final String finalArtist = artist;
+        mainHandler.post(() -> updateNowPlayingMetadata(finalTitle, finalArtist, lastArtUrl));
     }
 
     private void updateNowPlayingMetadata(String title, String artist, String artUrl) {
