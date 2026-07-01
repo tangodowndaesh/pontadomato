@@ -1,0 +1,53 @@
+<!--
+  INTEGRAÇÃO APP ANDROID — Rádio Ponta do Mato
+  ==============================================
+  Cola este <script> a seguir ao script do player (depois da linha
+  que fecha a função play()/pause() existente, ou no fim do <body>).
+
+  O que faz:
+  - Quando a página corre dentro da app Android (window.AndroidRadio existe),
+    avisa o serviço nativo sempre que o utilizador dá play/pause no site,
+    para que o stream continue a tocar com o ecrã apagado ou a app em
+    background — sem alterar nada do comportamento normal no browser.
+  - Não faz nada (e não dá erro) quando o site é aberto num browser normal,
+    porque window.AndroidRadio só existe dentro da app.
+-->
+<script>
+(function () {
+  if (typeof window.AndroidRadio === 'undefined') return; // browser normal: não faz nada
+
+  var playBtn   = document.getElementById('pdmPlayBtn');
+  var volSlider = document.getElementById('pdmVolSlider');
+  if (!playBtn) return;
+
+  // Sinaliza ao Android sempre que o estado "playing" do player muda.
+  // Usamos um MutationObserver na classe 'playing' do #pdmPlayer, porque
+  // é a fonte de verdade que o teu player já mantém (setPlayingUI()).
+  var root = document.getElementById('pdmPlayer');
+  if (root) {
+    var wasPlaying = root.classList.contains('playing');
+    var observer = new MutationObserver(function () {
+      var isPlaying = root.classList.contains('playing');
+      if (isPlaying !== wasPlaying) {
+        wasPlaying = isPlaying;
+        try {
+          if (isPlaying) {
+            window.AndroidRadio.onPlay();
+          } else {
+            window.AndroidRadio.onPause();
+          }
+        } catch (e) { /* silencioso: nunca deve quebrar o player do site */ }
+      }
+    });
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  // Sincroniza o volume com o serviço nativo
+  if (volSlider) {
+    volSlider.addEventListener('input', function () {
+      try { window.AndroidRadio.onVolumeChange(parseInt(volSlider.value, 10)); }
+      catch (e) {}
+    });
+  }
+})();
+</script>
