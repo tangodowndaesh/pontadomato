@@ -23,9 +23,7 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Compilar APK debug
-        run: gradle assembleDebug --no-daemon
-        env:
-          ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
+        run: gradle assembleDebug --no-daemon --warning-mode=none
 
       - name: Guardar APK
         uses: actions/upload-artifact@v4
