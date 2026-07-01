@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PontaDoMato" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorBackground">#050508</item>
+        <item name="colorPrimary">#6C2BDD</item>
+        <item name="colorPrimaryDark">#0d0b18</item>
+        <item name="colorAccent">#00e5d4</item>
+        <item name="android:statusBarColor">#050508</item>
+        <item name="android:navigationBarColor">#050508</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
