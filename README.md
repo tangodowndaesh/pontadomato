@@ -39,3 +39,5 @@ PontaDoMatoApp/
 - Se o utilizador fechar a app (swipe na lista de recentes) **enquanto
   não está a tocar**, o serviço encerra. Se estiver a tocar, mantém-se
   vivo — comportamento normal de apps de rádio.
+- Esta apk não requer nenhuma permissão, é simplesmente uma webview do
+  website oficial da rádio. 
