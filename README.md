@@ -41,3 +41,4 @@ PontaDoMatoApp/
   vivo — comportamento normal de apps de rádio.
 - Esta apk não requer nenhuma permissão, é simplesmente uma webview do
   website oficial da rádio. 
+- Este projeto não tem fins lucrativos pelo que a app está e estará sempre livre de publicidade.
