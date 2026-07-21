@@ -34,8 +34,6 @@ PontaDoMatoApp/
   ecrã ou trocas de app.
 - Os metadados (música a tocar) são obtidos do mesmo
   `status-json.xsl` que o site já usa, a cada 15 segundos.
-- A notificação de media controls (play/pause, capa do álbum) aparece
-  automaticamente — é gerida pelo Media3, não precisas de código extra.
 - Se o utilizador fechar a app (swipe na lista de recentes) **enquanto
   não está a tocar**, o serviço encerra. Se estiver a tocar, mantém-se
   vivo — comportamento normal de apps de rádio.
