@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     mediaController.play();
                 } else {
                     Intent intent = new Intent(MainActivity.this, RadioPlaybackService.class);
-                    ContextCompat.startForegroundService(MainActivity.this, intent);
+                    getApplicationContext().startService(intent);
                 }
             });
         }
