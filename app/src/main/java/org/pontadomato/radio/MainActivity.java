@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT >= 33) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1001);
-        }
-
         webView = findViewById(R.id.webview);
         setupWebView();
         connectToPlaybackService();
