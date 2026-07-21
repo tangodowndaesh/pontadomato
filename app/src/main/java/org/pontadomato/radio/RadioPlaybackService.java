@@ -42,7 +42,7 @@ public class RadioPlaybackService extends MediaSessionService {
     public static final String MOUNT_MATCH = "radio.mp3";
     public static final String STATION_NAME = "Rádio Ponta do Mato";
     public static final String FALLBACK_ART =
-            "https://yt3.googleusercontent.com/o0QO1F3VSvawH4KGS5TipbSWWDdwxZTQPNKPUTnR3xsf2iqv_Ew-wFLt3P8Ux9Pb4B8qrv23ZA=s160-c-k-c0x00ffffff-no-rj";
+            "https://pontadomato.likesyou.org/channels4_profile.jpg";
     private static final long POLL_MS = 15000L;
 
     private ExoPlayer player;
